@@ -1,4 +1,4 @@
-# Plan: Mixed Precision & VRAM Reduction for FramePack-Studio
+# Plan: Mixed Precision & VRAM Reduction for FramePack-Lite
 
 ## Problem
 

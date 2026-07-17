@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# Stop FramePack Studio
+# Stop FramePack Lite
 # Usage: ./stop-framepack.sh
 
 PID=$(pgrep -f "python studio.py" 2>/dev/null | head -1)
 
 if [ -z "$PID" ]; then
-  echo "FramePack Studio is not running."
+  echo "FramePack Lite is not running."
   exit 0
 fi
 
-echo "Stopping FramePack Studio (PID: $PID)..."
+echo "Stopping FramePack Lite (PID: $PID)..."
 kill "$PID"
 sleep 1
 

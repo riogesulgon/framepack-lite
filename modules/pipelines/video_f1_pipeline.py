@@ -1,5 +1,5 @@
 """
-Video F1 pipeline class for FramePack Studio.
+Video F1 pipeline class for FramePack Lite.
 This pipeline handles the "Video F1" model type.
 """
 

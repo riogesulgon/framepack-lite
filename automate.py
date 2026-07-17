@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-FramePack Studio — Automation Script
+FramePack Lite — Automation Script
 
-Programmatically submit video generation jobs to a running FramePack Studio
+Programmatically submit video generation jobs to a running FramePack Lite
 (Gradio) instance via its built-in API.
 
 Usage:
@@ -60,7 +60,7 @@ from modules.automate_config import (
 # ──────────────────────────────────────────────
 
 class FramePackClient:
-    """Client for interacting with a running FramePack Studio instance."""
+    """Client for interacting with a running FramePack Lite instance."""
 
     def __init__(self, server_url: str = "http://localhost:7860", verbose: bool = False):
         self.server = server_url.rstrip("/")
@@ -663,7 +663,7 @@ class FramePackClient:
 
 def create_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="FramePack Studio Automation — programmatically generate videos",
+        description="FramePack Lite Automation — programmatically generate videos",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -684,7 +684,7 @@ Examples:
 
     # ── Server ──
     parser.add_argument("--server", default="http://localhost:7860",
-                        help="FramePack Studio server URL (default: http://localhost:7860)")
+                        help="FramePack Lite server URL (default: http://localhost:7860)")
 
     # ── Config ──
     parser.add_argument("--config", type=str, default=None,

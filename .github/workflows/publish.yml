@@ -36,5 +36,5 @@ jobs:
           commit_sha: ${{ github.sha }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          image_name: colinurbs/fp-studio
+          image_name: riogesulgon/framepack-lite
           cuda_version: ${{ matrix.cuda-version }}

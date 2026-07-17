@@ -355,7 +355,7 @@ def create_interface(
 
     # Get the theme from settings
     current_theme = settings.get("gradio_theme", "default") # Use default if not found
-    block = gr.Blocks(css=css, title="FramePack Studio", theme=current_theme).queue()
+    block = gr.Blocks(css=css, title="FramePack Lite", theme=current_theme).queue()
 
     with block:
         with gr.Row(elem_id="fixed-toolbar"):
@@ -2301,7 +2301,7 @@ def create_interface(
                         <a href="https://discord.gg/MtuM7gFJ3V" target="_blank" style="margin: 0 10px; color: #666; text-decoration: none;">
                             <i class="fab fa-discord"></i> Discord
                         </a>
-                        <a href="https://github.com/colinurbs/FramePack-Studio" target="_blank" style="margin: 0 10px; color: #666; text-decoration: none;">
+                        <a href="https://github.com/riogesulgon/framepack-lite" target="_blank" style="margin: 0 10px; color: #666; text-decoration: none;">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>

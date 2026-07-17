@@ -1,5 +1,5 @@
 """
-Version information for FramePack Studio.
+Version information for FramePack Lite.
 This module provides a central location for version information.
 """
 

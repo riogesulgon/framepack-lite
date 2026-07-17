@@ -1,5 +1,5 @@
 """
-Original with Endframe pipeline class for FramePack Studio.
+Original with Endframe pipeline class for FramePack Lite.
 This pipeline handles the "Original with Endframe" model type.
 """
 

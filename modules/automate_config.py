@@ -1,8 +1,8 @@
 """
-Parameter definitions for FramePack Studio automation.
+Parameter definitions for FramePack Lite automation.
 
 This module defines the exact parameter order and defaults used by the
-FramePack Studio Gradio API. The order MUST match the `ips` list in
+FramePack Lite Gradio API. The order MUST match the `ips` list in
 `modules/interface.py` (line 1422) and the unpacking in
 `process_with_queue_update()` (line 1273).
 """

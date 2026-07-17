@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Start FramePack Studio with low-VRAM optimizations (RTX 2060 / 6GB)
+# Start FramePack Lite with low-VRAM optimizations (RTX 2060 / 6GB)
 # Usage: ./start-framepack.sh [--inbrowser]
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
@@ -13,7 +13,7 @@ fi
 
 source venv/bin/activate
 
-echo "🚀 Starting FramePack Studio..."
+echo "🚀 Starting FramePack Lite..."
 echo "   VRAM mode: Low-VRAM (auto-detected)"
 echo "   Gradio UI: http://localhost:7860"
 echo ""

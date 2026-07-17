@@ -1,5 +1,5 @@
 """
-Base pipeline class for FramePack Studio.
+Base pipeline class for FramePack Lite.
 All pipeline implementations should inherit from this class.
 """
 

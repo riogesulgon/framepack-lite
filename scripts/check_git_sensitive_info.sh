@@ -12,7 +12,7 @@
 #   0 - All checks passed (no issues found)
 #   1 - Potential issues found (review output)
 #
-# Based on the manual audit performed on 2025-07-17 for FP-Studio/framepack-studio.
+# Based on the manual audit performed on 2025-07-17 for FP-Studio/framepack-lite.
 
 set -uo pipefail
 

@@ -124,7 +124,7 @@ class VideoBaseModelGenerator(BaseModelGenerator):
             print(f"    *****    Warning: Unsupported video extension model type: {self.get_model_name()}.")
             print( "    *****    Using default max latents {max_latents_used_for_context} for context.")
             print( "    *****    Please report to the developers if you see this message:")
-            print( "    *****    Discord: https://discord.gg/8Z2c3a4 or GitHub: https://github.com/colinurbs/FramePack-Studio")
+            print( "    *****    Discord: https://discord.gg/8Z2c3a4 or GitHub: https://github.com/riogesulgon/framepack-lite")
             print("======================================================")
             # Probably better to press on with Video F1 max vs exception?
             # raise ValueError(f"Unsupported video extension model type: {self.get_model_name()}")

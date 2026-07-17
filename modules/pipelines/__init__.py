@@ -1,5 +1,5 @@
 """
-Pipeline module for FramePack Studio.
+Pipeline module for FramePack Lite.
 This module provides pipeline classes for different generation types.
 """
 

@@ -1,12 +1,13 @@
-<h1 align="center">FramePack Studio</h1>
+<h1 align="center">FramePack Lite</h1>
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/MtuM7gFJ3V)[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/ColinU)
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/colinurbs/FramePack-Studio)
+[![Fork](https://img.shields.io/badge/Fork_of-FP--Studio%2Fframepack--studio-blue?style=flat-square)](https://github.com/FP-Studio/framepack-studio)
 
 > **This is a fork of [FP-Studio/framepack-studio](https://github.com/FP-Studio/framepack-studio) with enhancements for low-VRAM GPUs (6 GB) and quality-of-life improvements.** See [Fork Changes](#fork-changes) below for details.
 
-FramePack Studio is an AI video generation application based on FramePack that strives to provide everything you need to create high quality video projects.
+**FramePack Lite** is a lightweight fork of [FramePack Studio](https://github.com/FP-Studio/framepack-studio) optimized for low-VRAM GPUs (6 GB). It runs the same FramePack video generation models with automatic memory-saving overrides, 4-bit quantization support, and a programmatic automation API.
 
 ![screencapture-127-0-0-1-7860-2025-06-12-19_50_37](https://github.com/user-attachments/assets/b86a8422-f4ce-452b-80eb-2ba91945f2ea)
 ![screencapture-127-0-0-1-7860-2025-06-12-19_52_33](https://github.com/user-attachments/assets/ebfb31ca-85b7-4354-87c6-aaab6d1c77b1)
@@ -37,19 +38,19 @@ For information on installation, configuration, and usage, please visit our [doc
 
 ## Installation
 
-Please see [this guide](https://docs.framepackstudio.com/docs/get_started/) on our documentation site to get FP-Studio installed.
+Please see [this guide](https://docs.framepackstudio.com/docs/get_started/) on the upstream documentation site to get started. Low-VRAM users can also use the provided `start-framepack.sh` script.
 
 ## Contributing 
 
-We would love your help building FramePack Studio! To make collaboration effective, please adhere to the following:
-- Keep Pull Requests Focused: Each Pull Request should address a single issue or add one specific feature. Please do not mix bug fixes, new features, and code refactoring in the same PR.
-- Target the develop Branch: All Pull Requests must be opened against the develop branch. PRs opened against the main branch will be closed.
-- Discuss Big Changes First: If you plan to work on a large feature or a significant refactor, please announce it first in the #contributors channel on our [Discord server](https://discord.com/invite/MtuM7gFJ3V). This helps us coordinate efforts and prevent duplicate work.
+Contributions are welcome! Please open issues and PRs against this repository. For upstream contributions, see the [original project](https://github.com/FP-Studio/framepack-studio).
+
+- Keep Pull Requests Focused: Each PR should address a single issue or feature.
+- Discuss Big Changes First: Open an issue before starting a large refactor.
 
 
 ## Fork Changes
 
-This fork extends the upstream [FP-Studio/framepack-studio](https://github.com/FP-Studio/framepack-studio) with the following changes:
+This fork extends [FP-Studio/framepack-studio](https://github.com/FP-Studio/framepack-studio) with the following changes:
 
 ### 🖥️ Low-VRAM Support (6 GB GPUs, e.g. RTX 2060)
 
@@ -65,7 +66,7 @@ This fork extends the upstream [FP-Studio/framepack-studio](https://github.com/F
 
 ### 🤖 Automation API
 
-- **`automate.py`** — A CLI client for programmatically submitting generation jobs to a running FramePack Studio instance via the Gradio API. Supports image-to-video, video-to-video, all model types, LoRAs, timestamped prompts, and config-file presets.
+- **`automate.py`** — A CLI client for programmatically submitting generation jobs to a running FramePack Lite instance via the Gradio API. Supports image-to-video, video-to-video, all model types, LoRAs, timestamped prompts, and config-file presets.
 - **`modules/automate_config.py`** — Parameter metadata and endpoint matching for the automation client.
 
 ### 🛠️ Utilities & Tooling

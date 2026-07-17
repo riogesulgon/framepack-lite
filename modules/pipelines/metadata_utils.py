@@ -1,5 +1,5 @@
 """
-Metadata utilities for FramePack Studio.
+Metadata utilities for FramePack Lite.
 This module provides functions for generating and saving metadata.
 """
 

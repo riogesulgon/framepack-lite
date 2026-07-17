@@ -1,5 +1,5 @@
 """
-Original pipeline class for FramePack Studio.
+Original pipeline class for FramePack Lite.
 This pipeline handles the "Original" model type.
 """
 
