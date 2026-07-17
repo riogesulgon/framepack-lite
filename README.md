@@ -4,6 +4,8 @@
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/colinurbs/FramePack-Studio)
 
+> **This is a fork of [FP-Studio/framepack-studio](https://github.com/FP-Studio/framepack-studio) with enhancements for low-VRAM GPUs (6 GB) and quality-of-life improvements.** See [Fork Changes](#fork-changes) below for details.
+
 FramePack Studio is an AI video generation application based on FramePack that strives to provide everything you need to create high quality video projects.
 
 ![screencapture-127-0-0-1-7860-2025-06-12-19_50_37](https://github.com/user-attachments/assets/b86a8422-f4ce-452b-80eb-2ba91945f2ea)
@@ -44,6 +46,42 @@ We would love your help building FramePack Studio! To make collaboration effecti
 - Target the develop Branch: All Pull Requests must be opened against the develop branch. PRs opened against the main branch will be closed.
 - Discuss Big Changes First: If you plan to work on a large feature or a significant refactor, please announce it first in the #contributors channel on our [Discord server](https://discord.com/invite/MtuM7gFJ3V). This helps us coordinate efforts and prevent duplicate work.
 
+
+## Fork Changes
+
+This fork extends the upstream [FP-Studio/framepack-studio](https://github.com/FP-Studio/framepack-studio) with the following changes:
+
+### 🖥️ Low-VRAM Support (6 GB GPUs, e.g. RTX 2060)
+
+- **Auto-detection of low-VRAM mode** — If ≤ 6 GB free VRAM is detected, the studio automatically applies memory-saving overrides
+- **Block cleanup hooks** — Per-transformer-block `torch.cuda.empty_cache()` hooks that free GPU memory between blocks when using `DynamicSwapInstaller`, preventing OOM during the first forward pass on 6 GB cards
+- **Auto-capped resolution** — On low-VRAM GPUs, resolution is capped at 384×384 and `latent_window_size` at 6 to prevent attention-layer OOM (the math SDP backend is O(n²) in memory)
+- **Conservative defaults** — Low-VRAM mode sets `gpu_memory_preservation=1.0 GB`, `vae_batch_size=4`, and enables MagCache with aggressive settings (`threshold=0.05`, `max_skips=3`, `retention=0.15`)
+- **Start/stop scripts** — `start-framepack.sh` (with `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`) and `stop-framepack.sh`
+
+### 🔧 BitsAndBytes 4-bit Quantization Helper
+
+- Added `diffusers_helper/quantize.py` — a drop-in helper that replaces all `nn.Linear` layers with `bnb.nn.Linear4bit` (NF4 quantization), reducing model weight memory from ~12 GB (bf16) to ~3 GB. Shares original weight storage to avoid doubling CPU RAM. Ready to integrate into the generator `load_model()` methods.
+
+### 🤖 Automation API
+
+- **`automate.py`** — A CLI client for programmatically submitting generation jobs to a running FramePack Studio instance via the Gradio API. Supports image-to-video, video-to-video, all model types, LoRAs, timestamped prompts, and config-file presets.
+- **`modules/automate_config.py`** — Parameter metadata and endpoint matching for the automation client.
+
+### 🛠️ Utilities & Tooling
+
+- **`download-model.sh`** / **`download_missing_model.py`** — Robust model downloaders with resume support, retry logic, and progress logging for the FramePackI2V_HY model
+- **`scripts/clean_hf_blob_cache.py`** — Cleans orphaned blob files from the HuggingFace model cache to reclaim disk space
+- **`scripts/check_git_sensitive_info.sh`** — A 10-category git history audit script that scans for leaked API keys, tokens, passwords, private keys, PII, and other sensitive information
+
+### 📦 Other Improvements
+
+- **Toolbox graceful degradation** — The toolbox module is now optional; if it fails to import, the studio continues without post-processing/upscaling rather than crashing
+- **LoRA weight dict** — The LoRA system now accepts a `{name: weight}` dict instead of positional args, making multi-LoRA control more robust
+- **Default resolution lowered to 480×480** — Better default for low-VRAM hardware
+- **MagCache support in transformer** — Integration hooks for [MagCache](https://github.com/Zehong-Ma/MagCache) (magnitude-aware caching) to skip redundant diffusion steps
+
+---
 
 ## Credits
 
